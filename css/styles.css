@@ -49,6 +49,10 @@ ul {
 
 /*Хедер*/
 
+header {
+  position: relative;
+}
+
 .container-header {
   display: flex;
   align-items: baseline;
@@ -114,6 +118,9 @@ ul {
 
 .site-nav a {
   color: var(--title-text-color);
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: (cubic-bezier(0.4, 0, 0.2, 1));
   font-weight: 500;
   font-size: 14px;
   line-height: 1.14;
@@ -126,6 +133,22 @@ ul {
 
 li .page {
   color: var(--accent-color);
+}
+
+.page {
+  position: relative;
+}
+
+.page::after {
+  position: absolute;
+  left: 0;
+  bottom: -28px;
+  content: "";
+  width: 100%;
+  height: 4px;
+  background-color: var(--accent-color);
+  border-radius: 4px;
+  z-index: 1;
 }
 
 /*Контакти в хедері*/
@@ -145,6 +168,8 @@ li .page {
 
 .contacts a {
   color: var(--primary-text-color);
+  transition-property: color;
+  transition-duration: 250ms;
   font-weight: 500;
   font-size: 14px;
   line-height: 1.14;
@@ -169,11 +194,17 @@ body {
 .email {
   margin-right: 10px;
   fill: #757575;
+  transition-property: fill;
+  transition-duration: 250ms;
+  transition-timing-function: (cubic-bezier(0.4, 0, 0.2, 1));
 }
 
 .phone {
   margin-right: 10px;
   fill: #757575;
+  transition-property: fill;
+  transition-duration: 250ms;
+  transition-timing-function: (cubic-bezier(0.4, 0, 0.2, 1));
 }
 
 .contact-icon:hover,
@@ -201,6 +232,11 @@ body {
 }
 
 .header-border {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  content: "";
+  width: 100%;
   border-bottom: 1px solid #ececec;
 }
 
@@ -272,9 +308,6 @@ button {
 
 /*Секція-1*/
 
-.decorative-images {
-}
-
 .icon-about {
   display: flex;
   background-color: #f5f4fa;
@@ -334,6 +367,32 @@ button {
 
 .example-photo {
   display: block;
+}
+
+.thumb-photo {
+  position: relative;
+}
+
+.overlay-photo {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 70px;
+  background-color: rgba(47, 48, 58, 0.8);
+}
+
+.photo-description {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #ffffff;
 }
 
 .section-title {
@@ -418,6 +477,9 @@ button {
 
 .icon-social {
   fill: #afb1b8;
+  transition-property: fill;
+  transition-duration: 250ms;
+  transition-timing-function: (cubic-bezier(0.4, 0, 0.2, 1));
 }
 
 .link-to-social {
@@ -428,6 +490,10 @@ button {
   width: 44px;
   height: 44px;
   border-radius: 50%;
+  background-color: #fff;
+  transition-property: background-color;
+  transition-duration: 250ms;
+  transition-timing-function: (cubic-bezier(0.4, 0, 0.2, 1));
 }
 
 .photo {
@@ -451,6 +517,9 @@ button {
 
 .client-icon {
   fill: #afb1b8;
+  transition-property: fill;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .link-to-client {
@@ -461,6 +530,9 @@ button {
   height: 92px;
   border: 1px solid #afb1b8;
   border-radius: 4px;
+  transition-property: border-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .link-to-client:hover,
@@ -551,6 +623,9 @@ address {
   justify-content: center;
   align-items: center;
   background-color: rgba(255, 255, 255, 0.1);
+  transition-property: background-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .join-link:hover,
@@ -602,10 +677,13 @@ address {
   margin-top: 0px;
   padding: 6px 22px;
   letter-spacing: 0.03em;
+  transition-property: background-color, color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .control-btn:hover {
-  background: #2196f3;
+  background-color: #2196f3;
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
   border-radius: 4px;
@@ -643,15 +721,18 @@ address {
   display: block;
 }
 
-.thumb{
- position: relative;
+.thumb {
+  position: relative;
   overflow: hidden;
 }
 
-.card-product { 
+.card-product {
   border-bottom: 1px solid #eeeeee;
   margin-right: 30px;
   margin-bottom: 30px;
+  transition-property: box-shadow;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .overlay {
@@ -661,7 +742,9 @@ address {
   width: 100%;
   height: 100%;
   transform: translatey(100%);
-  transition: transform 250ms ease;
+  transition-property: translatey(0), background-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .description {
@@ -676,8 +759,9 @@ address {
   padding: 63px 24px;
 }
 
-.thumb:hover .overlay {
-  transform: translatey(0);
+.product:hover .overlay,
+.product:focus .overlay {
+  transform: translateY(0);
 }
 
 .card-product:hover,
